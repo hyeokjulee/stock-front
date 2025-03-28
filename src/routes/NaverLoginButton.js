@@ -12,6 +12,8 @@ function NaverLoginButton() {
     naver_id_login.setDomain(process.env.REACT_APP_SERVICE_URL);
     naver_id_login.setState(state);
     naver_id_login.init_naver_id_login();
+
+    localStorage.setItem("naver_state", state); // state를 로컬 스토리지에 저장 (CSRF 공격 방지)
   };
 
   document.body.appendChild(script);
