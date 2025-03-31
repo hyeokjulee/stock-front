@@ -27,7 +27,7 @@ function NaverLoginBtn() {
       // 컴포넌트 언마운트 시 script 정리
       document.body.removeChild(script);
     };
-  }, []); // 컴포넌트 마운트 시 한 번만 실행
+  }, []);
 
   return <div id="naver_id_login"></div>;
 }
