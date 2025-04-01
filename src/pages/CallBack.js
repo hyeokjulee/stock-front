@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosInstance from "../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
 
 function CallBack() {
@@ -27,13 +27,11 @@ function CallBack() {
       accessToken: naver_id_login.oauthParams.access_token,
     };
 
-    axios
-      .post(process.env.REACT_APP_API_USERINFO_URL, naverAccessToken) // 접근 토큰으로 JWT 요청
-      .then((response) => {
-        // jwt 저장 후 메인 페이지로 이동
-        localStorage.setItem("token", response.data.token);
-        navigate("/");
-      });
+    axiosInstance.post("/auth/login", naverAccessToken).then((response) => {
+      // jwt 저장 후 메인 페이지로 이동
+      localStorage.setItem("token", response.data.token);
+      navigate("/");
+    });
   };
 
   document.body.appendChild(script);

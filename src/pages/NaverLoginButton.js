@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function NaverLoginBtn() {
+function NaverLoginButton() {
   useEffect(() => {
     const script = document.createElement("script");
 
@@ -32,4 +32,4 @@ function NaverLoginBtn() {
   return <div id="naver_id_login"></div>;
 }
 
-export default NaverLoginBtn;
+export default NaverLoginButton;
