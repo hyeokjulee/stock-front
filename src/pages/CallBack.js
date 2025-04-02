@@ -1,4 +1,5 @@
 import axiosInstance from "../api/axiosInstance";
+import useTokenStore from "../store/useTokenStore";
 import { useNavigate } from "react-router-dom";
 
 function CallBack() {
@@ -29,7 +30,7 @@ function CallBack() {
 
     axiosInstance.post("/auth/login", naverAccessToken).then((response) => {
       // jwt 저장 후 메인 페이지로 이동
-      localStorage.setItem("token", response.data.token);
+      useTokenStore.getState().setAccessToken(response.data.accessToken);
       navigate("/");
     });
   };

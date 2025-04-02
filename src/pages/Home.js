@@ -1,4 +1,4 @@
-import NaverLoginButton from "../routes/NaverLoginButton";
+import NaverLoginButton from "../components/NaverLoginButton";
 
 function Home() {
   return <NaverLoginButton />;
