@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
   timeout: 5000,
 });
 
-const axiosInstanceRefresh = axios.create({
+const axiosInstanceAuth = axios.create({
   baseURL: process.env.REACT_APP_API_SERVER_URL,
   withCredentials: true,
   timeout: 5000,
@@ -29,7 +29,7 @@ axiosInstance.interceptors.response.use(
       originalConfig._retry = true; // 무한 루프 방지
 
       try {
-        const response = await axiosInstanceRefresh.post("/auth/refresh");
+        const response = await axiosInstanceAuth.post("/auth/refresh");
 
         const newAccessToken = response.data.accessToken;
         useTokenStore.getState().setAccessToken(newAccessToken);
@@ -39,7 +39,7 @@ axiosInstance.interceptors.response.use(
       } catch (err) {
         // 리프레시 실패 시 로그아웃
         useTokenStore.getState().clearAccessToken();
-        axiosInstanceRefresh.post("/auth/logout");
+        axiosInstanceAuth.post("/auth/logout");
 
         return Promise.reject(err);
       }
