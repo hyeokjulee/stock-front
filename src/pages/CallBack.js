@@ -29,9 +29,9 @@ function CallBack() {
     };
 
     axiosInstance.post("/auth/login", naverAccessToken).then((response) => {
-      // jwt 저장 후 대시보드로 이동
+      // jwt 저장 후 메인 페이지로 이동
       useTokenStore.getState().setAccessToken(response.data.accessToken);
-      navigate("/dashboard");
+      navigate("/");
     });
   };
 
