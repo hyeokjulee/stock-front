@@ -1,4 +1,4 @@
-import useTokenStore from "../store/useTokenStore";
+import { useTokenStore } from "../store/tokenStore";
 
 function DashBoard() {
   console.log("accessToken:", useTokenStore.getState().accessToken);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import useTokenStore from "../store/useTokenStore";
+import { useTokenStore } from "../store/tokenStore";
 
 let isRefreshing = false;
 let requestQueue = [];
@@ -15,11 +15,13 @@ const axiosInstanceAuth = axios.create({
   timeout: 5000,
 });
 
-axiosInstance.interceptors.request.use((config) => {
-  const accessToken = useTokenStore.getState().accessToken;
+axiosInstance.interceptors.request.use(async (config) => {
+  const { accessToken } = useTokenStore.getState();
+
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
+
   return config;
 });
 
