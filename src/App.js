@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useTokenStore } from "./store/tokenStore";
-import axiosInstanceAuth from "./api/axiosInstance";
+import { axiosInstanceAuth } from "./api/axiosInstance";
 import Home from "./pages/Home";
 import CallBack from "./pages/CallBack";
 import DashBoard from "./pages/DashBoard";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   const [loading, setLoading] = useState(true);

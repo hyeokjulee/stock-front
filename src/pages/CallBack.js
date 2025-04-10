@@ -1,4 +1,4 @@
-import axiosInstanceAuth from "../api/axiosInstance";
+import { axiosInstanceAuth } from "../api/axiosInstance";
 import { useTokenStore } from "../store/tokenStore";
 import { useNavigate } from "react-router-dom";
 
@@ -6,7 +6,6 @@ function CallBack() {
   const navigate = useNavigate();
 
   const script = document.createElement("script");
-
   script.src = "https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js";
 
   script.onload = () => {
