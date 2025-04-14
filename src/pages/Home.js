@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useTokenStore } from "../store/tokenStore";
 import NaverLoginButton from "../components/NaverLoginButton";
+import LogoutButton from "../components/LogoutButton";
 
 function Home() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Home() {
 
   return (
     <div>
-      {isLoggedIn ? <button>Logout</button> : <NaverLoginButton />}
+      {isLoggedIn ? <LogoutButton /> : <NaverLoginButton />}
       <button onClick={handleClick}>대시보드 페이지로 이동</button>
     </div>
   );
