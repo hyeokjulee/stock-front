@@ -14,11 +14,6 @@ const Header = () => {
     { to: "/alert", label: "주가 알림" },
   ];
 
-  const loggedOutLinks = [
-    { to: "/", label: "홈" },
-    { to: "/market-cap", label: "시가총액" },
-  ];
-
   return (
     <header className={styles.header}>
       <h1>Stock</h1>
@@ -28,19 +23,12 @@ const Header = () => {
             <LogoutButton />
             {loggedInLinks.map(({ to, label }) => (
               <Link key={to} to={to}>
-                <button className={styles.button}>{label}</button>
+                <button>{label}</button>
               </Link>
             ))}
           </>
         ) : (
-          <>
-            <NaverLoginButton />
-            {loggedOutLinks.map(({ to, label }) => (
-              <Link key={to} to={to}>
-                <button className={styles.button}>{label}</button>
-              </Link>
-            ))}
-          </>
+          <NaverLoginButton />
         )}
       </div>
     </header>

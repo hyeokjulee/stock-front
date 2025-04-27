@@ -33,9 +33,9 @@ function App() {
         <Route path="/naverlogin/callback" element={<CallBack />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="market-cap" element={<MarketCapPage />} />
           <Route element={<ProtectedRoute />}>
             <Route path="dashboard" element={<DashBoard />} />
+            <Route path="market-cap" element={<MarketCapPage />} />
             <Route path="alert" element={<AlertPage />} />
           </Route>
         </Route>
