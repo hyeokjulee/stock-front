@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import CallBack from "./pages/CallBack";
 import DashBoard from "./pages/DashBoard";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import Layout from "./components/Layout";
+import MarketCapPage from "./pages/MarketCapPage";
+import AlertPage from "./pages/AlertPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,10 +30,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/naverlogin/callback" element={<CallBack />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="market-cap" element={<MarketCapPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="dashboard" element={<DashBoard />} />
+            <Route path="alert" element={<AlertPage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

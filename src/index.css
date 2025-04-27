@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+  
+  ul {
+    list-style: none;
+  }
