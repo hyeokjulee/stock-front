@@ -23,7 +23,7 @@ const Header = () => {
             <LogoutButton />
             {loggedInLinks.map(({ to, label }) => (
               <Link key={to} to={to}>
-                <button>{label}</button>
+                <button className="btn">{label}</button>
               </Link>
             ))}
           </>

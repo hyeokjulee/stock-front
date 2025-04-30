@@ -1,23 +1,8 @@
 .header {
-    padding: 10px;
-    background-color: #f8f9fa;
-  }
-  
-  .button_container {
-    display: flex;
-  }
+  padding: 10px;
+  background-color: #f8f9fa;
+}
 
-  button {
-    background-color: #0d6efd;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    margin: 0 5px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  button:hover {
-    background-color: #0b5ed7;
-  }
+.button_container {
+  display: flex;
+}
