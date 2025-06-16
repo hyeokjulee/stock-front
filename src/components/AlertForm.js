@@ -16,7 +16,7 @@ export default function AlertForm() {
     const requestBody = { tickerSymbol, exchangeCode, targetPrice };
 
     try {
-      await axiosInstance.post("/stock-alerts/create", requestBody);
+      await axiosInstance.post("/stock-alerts", requestBody);
       setTargetPrice("");
     } catch (error) {
       error.response?.status === 400

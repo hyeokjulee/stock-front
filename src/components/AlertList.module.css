@@ -1,0 +1,12 @@
+.alertItem {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.alertItem button {
+  align-self: flex-end;
+}
