@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { axiosInstance } from "../api/axiosInstance";
+import { useAlertStore } from "../store/useAlertStore";
 import styles from "./AlertForm.module.css";
 
 export default function AlertForm() {
+  const incrementRefresh = useAlertStore((state) => state.incrementRefresh);
+
   const [tickerSymbol, setTickerSymbol] = useState("");
   const [exchangeCode, setExchangeCode] = useState("NAS");
   const [targetPrice, setTargetPrice] = useState("");
@@ -18,6 +21,7 @@ export default function AlertForm() {
     try {
       await axiosInstance.post("/stock-alerts", requestBody);
       setTargetPrice("");
+      incrementRefresh(); // 등록 성공 후 refreshCount 증가
     } catch (error) {
       error.response?.status === 400
         ? alert(

@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../api/axiosInstance";
+import { useAlertStore } from "../store/useAlertStore";
 import styles from "./AlertList.module.css";
 
 export default function AlertList() {
+  const refreshCount = useAlertStore((state) => state.refreshCount);
+
   const [alerts, setAlerts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,7 +27,7 @@ export default function AlertList() {
 
     try {
       await axiosInstance.delete(`/stock-alerts/${id}`);
-      setAlerts(alerts.filter((alert) => alert.id !== id));
+      setAlerts((prevAlerts) => prevAlerts.filter((alert) => alert.id !== id));
     } catch {
       alert("삭제 중 오류가 발생했습니다.");
     } finally {
@@ -34,7 +37,7 @@ export default function AlertList() {
 
   useEffect(() => {
     fetchAlerts();
-  }, []);
+  }, [refreshCount]); // refreshCount가 바뀔 때마다 호출
 
   if (loading) return <p>불러오는 중...</p>;
   if (error) return <p>{error}</p>;
